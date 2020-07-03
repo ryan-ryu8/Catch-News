@@ -1,0 +1,20 @@
+{% extends 'base.html'%} {% block content %}
+
+<body>
+    <h1 align="center"> {{id}} </h1>
+    <div class="container">
+        <div class="card-columns">
+            {% for news in news %}
+            <div class="card">
+                <h4>{{news.author}}</h4>
+                <p>{{news.description}}</p>
+                <a href="{{news.url}}">
+                    <p>Click to get more dets</p>
+                </a>
+            </div>
+            <small class="text-muted">News Date:{{news.time}}</small>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
