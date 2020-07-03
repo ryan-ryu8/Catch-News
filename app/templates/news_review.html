@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<body>
+    <h1 align="center">{{review_name}}</h1>
+    <div class="container">
+        <div class="card-columns">
+            {% for news_review in news_reviews %}
+            <div class="card">
+                <h4>{{review.author}}</h4>
+                <a href="{{review.url}}">
+                    <p>Click for more dets</p>
+                </a>
+                <small class="text-muted">Publish date:{{review.time}}</small>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
