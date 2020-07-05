@@ -10,7 +10,7 @@ class News:
         self.image = image
         self.title = title
 
-class New_review:
+class News_review:
     '''
     Instantiates objects of the news review of the news sources
     '''
