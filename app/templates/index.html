@@ -1,0 +1,37 @@
+{% extends 'base.html'%} {% block content %} {% block styles %}
+<div class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <h4>Check Out News Sources</h4>
+        </div>
+        <ul>
+            {% for source in sources %}
+            <a href="/news/{{news.id}}">
+            <p class="text-capitalized">{{news.id}}</p></a>
+            {% end for %}
+        </ul>
+    </div>
+</div>
+
+<div class="col-9">
+    <h3 align="center">NEWS HEADLINES</h3>
+<div class="container">
+    {% for headlines in headlines %}
+
+    <div class="card">
+        <img class="card" src="{{headlines.image}}" alt="Card image cap" size="100px180">
+        <div class="card-body">
+            <h5 class="card-title">{{headlines.author}}</h5>
+            <p class="card-text">{{headlines.description}}</p>
+            <a href="{{headlines.url}}">
+                <p class="card-text">Click to get more dets</p> 
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Date published:{{headlines.time}}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
