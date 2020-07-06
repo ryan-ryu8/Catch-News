@@ -66,4 +66,33 @@ def get_category(review_name):
     '''
     Gets response to review json
     '''
-    
+    get_category_url = review_url.format(review_name,apikey)
+    print(get_category_url)
+    with urllib.request.urlopen(get_category_url) as url:
+        get_category_data = url.read()
+        get_category_response = json.loads(get_category_data)
+        get_category_results = None
+
+        if get_category_response['news']:
+            get_category_list = get_category_response['news']
+            get_category_results = process_news_results(get_category_list)
+
+    return get_category_results
+
+def get_headlines():
+    '''
+    Gets response to category json
+    '''
+    get_headlines_url = 'https://newsapi/headlines?country=ke&apiKey={}'.format(api_key)
+    print(get_headlines_url)
+    with urllib.request.urlopen(get_headlines_url) as url:
+        get_headlines_data = url.read()
+        get_headlines_response = json.loads(get_headlines_data)
+        get_headlines_results = None
+
+        if get_headlines_response['news']:
+            get_headlines_list = get_headlines_response['news']
+            get_headlines_results = process_news_results(get_headlines_list)
+
+    return get_headlines_results
+
