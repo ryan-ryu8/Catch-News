@@ -1,4 +1,4 @@
-from app import creat_app
+from app import create_app
 from flask_script import Manager,Server
 
 app = create_app('development')
@@ -15,5 +15,5 @@ def test():
     test = unittest.TestLoader().discover('test')
     unittest.TestTestRunner(verbosity=2).run(tests)
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     manager.run
