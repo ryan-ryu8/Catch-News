@@ -17,4 +17,22 @@ def get_source():
     '''
     get_source_url = source_url.format(api_key)
     with urllib.request.urlopen(get_source_url) as url:
-        get_sources_data = 
+        get_sources_data = url.read()
+        get_source_response = json.loads(get_sources_data)
+
+        source_results = None
+
+        if get_source_response['sources']:
+            source_results_list = get_source_response['sources']
+            source_results = process_results(source_results_list)
+
+    return source_results 
+
+def process_results(source_list):
+    '''
+    Process results to list of objects transformation
+    Args:
+    source_list:source details
+    Returns:
+    source_results:source objects
+    '''
